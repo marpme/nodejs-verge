@@ -148,9 +148,9 @@ export abstract class API {
   abstract listReceivedByAddress(): Client
 
   abstract listSinceBlock(): Client
-
-  abstract listTransactions(): Client
-
+*/
+	abstract getTransactionList(): Promise<Transaction[]>
+	/*
   abstract listUnspent(): Client
 
   abstract move(): Client

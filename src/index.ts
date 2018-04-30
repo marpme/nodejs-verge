@@ -9,4 +9,4 @@ const myClient: Client = new Client({
 	user: 'kyon',
 })
 
-myClient.unlockWallet('')*/
+myClient.getTransactionList().then(console.log)*/

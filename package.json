@@ -1,6 +1,6 @@
 {
 	"name": "verge-node-typescript",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"description": "NodeJS typescript RPC client for VERGE currency",
 	"keywords": ["verge"],
 	"repository": "git://github.com/marpme/verge-node-typescript.git",

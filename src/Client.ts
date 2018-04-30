@@ -136,4 +136,8 @@ export class Client extends API {
 	getPeerInfo(): Promise<Array<Peer>> {
 		return this.send('getPeerInfo').catch(console.error)
 	}
+
+	getTransactionList(): Promise<Transaction[]> {
+		return this.send('listtransactions').catch(console.error)
+	}
 }
