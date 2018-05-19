@@ -5,8 +5,8 @@ export { Client } from './Client'
   to prove that this is working :)
 
 const myClient: Client = new Client({
-	pass: 'lolcat',
-	user: 'kyon',
+  pass: 'lolcat',
+  user: 'kyon',
 })
 
-myClient.getTransactionList().then(console.log)*/
+myClient.getTransactionList(100).then(console.log)*/
