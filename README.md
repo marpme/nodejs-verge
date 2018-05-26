@@ -6,7 +6,9 @@ ____   _________________________   ________ ___________
    \___/   /_______  / |____|_  / \______  //_______  /
                    \/         \/         \/         \/
 ```
+
 # A Node.js VERGE Client
+
 node-verge is a VERGE client for node.js
 
 It is a fork of the excellent Kapitalize Bitcoin Client (now removed from GitHub) intended for use with VERGE. The purpose of this repository is:
@@ -34,9 +36,8 @@ var verge = require('node-verge')()
 verge.auth('myusername', 'mypassword')
 
 verge.getDifficulty(function() {
-    console.log(arguments);
+  console.log(arguments)
 })
-
 ```
 
 ## Chaining
@@ -47,9 +48,9 @@ Pretty much everything is chainable.
 var verge = require('node-verge')()
 
 verge
-.auth('MyUserName', 'mypassword')
-.getNewAddress()
-.getBalance()
+  .auth('MyUserName', 'mypassword')
+  .getNewAddress()
+  .getBalance()
 ```
 
 ## Methods
@@ -58,11 +59,10 @@ The [Litecoin API](https://litecoin.info/Litecoin_API) is supported as direct me
 
 ```js
 verge.getNewAddress(function(err, address) {
-    this.validateaddress(address, function(err, info) {
-
-    })
+  this.validateaddress(address, function(err, info) {})
 })
 ```
+
 ### .exec(command [string], ...arguments..., callback [function])
 
 Executes the given command with optional arguments. Function `callback` defaults to `console.log`.
@@ -71,9 +71,7 @@ All of the API commands are supported in lowercase or camelcase. Or uppercase. A
 ```js
 verge.exec('getNewAddress')
 
-verge.exec('getbalance', function(err, balance) {
-
-})
+verge.exec('getbalance', function(err, balance) {})
 ```
 
 ### .set(key [string, object], value [optional])
@@ -393,6 +391,7 @@ All [Litecoin API](https://litecoin.info/Litecoin_API) commands are supported, i
 <td> [generate] is true or false to turn generation on or off.
 
 Generation is limited to [genproclimit] processors, -1 is unlimited. </td>
+
 <td> N
 </td></tr>
 <tr>
@@ -449,25 +448,23 @@ Generation is limited to [genproclimit] processors, -1 is unlimited. </td>
 You may pass options to the initialization function or to the `set` method.
 
 ```js
-
 var verge = require('verge')({
-    user:'user'
+  user: 'user',
 })
 
 verge.set('pass', 'somn')
-verge.set({port:20102})
-
+verge.set({ port: 20102 })
 ```
 
 Available options and default values:
 
-+ host *localhost*
-+ port *20102*
-+ user
-+ pass
-+ passphrasecallback
-+ https
-+ ca
+* host _localhost_
+* port _20102_
+* user
+* pass
+* passphrasecallback
+* https
+* ca
 
 ### Passphrase Callback
 
@@ -477,17 +474,17 @@ You may pass an optional function `passphrasecallback` to the `node-verge` initi
 
     function(command, args, callback) {}
 
-+ **command** is the command that failed due to a locked wallet.
-+ **args** is the arguments for the failed command.
-+ **callback** is a typical node-style continuation callback of the form `function(err, passphrase, timeout) {}`. Call callback with the wallet passphrase and desired timeout from within your passphrasecallback to unlock the wallet.
+* **command** is the command that failed due to a locked wallet.
+* **args** is the arguments for the failed command.
+* **callback** is a typical node-style continuation callback of the form `function(err, passphrase, timeout) {}`. Call callback with the wallet passphrase and desired timeout from within your passphrasecallback to unlock the wallet.
 
 You may hard code your passphrase (not recommended) as follows:
 
 ```js
 var verge = require('node-verge')({
-    passphrasecallback: function(command, args, callback) {
-        callback(null, 'passphrase', 30);
-    }
+  passphrasecallback: function(command, args, callback) {
+    callback(null, 'passphrase', 30)
+  },
 })
 ```
 
@@ -498,19 +495,21 @@ var readline = require('readline')
 
 var rl = readline.createInterface({
   input: process.stdin,
-  output: process.stdout
+  output: process.stdout,
 })
 
 var verge = require('node-verge')({
   passphrasecallback: function(command, args, callback) {
-    rl.question('Enter passphrase for "' + command + '" operation: ', function(passphrase) {
+    rl.question('Enter passphrase for "' + command + '" operation: ', function(
+      passphrase
+    ) {
       if (passphrase) {
         callback(null, passphrase, 1)
       } else {
         callback(new Error('no passphrase entered'))
       }
     })
-  }
+  },
 })
 ```
 
@@ -533,7 +532,7 @@ var verge = require('node-verge')({
   user: 'rpcusername',
   pass: 'rpcpassword',
   https: true,
-  ca: ca
+  ca: ca,
 })
 ```
 
@@ -550,6 +549,3 @@ nodeunit test/test-node-verge.js
 [VERGE](http://www.vergecurrency.com) donation address is DPNC2H2pYUCSebQ992GyeRTRuWw3hCTBwD
 
 Donations in [verge](http://www.vergecurrency.com) will be used for bounties, and holding. As a side note: I encourage all GitHub repository owners to post a donation address so their community can easily support development financially.
-
-
-

@@ -1,8 +1,8 @@
-import { Client } from './Client'
-import { Transaction } from './Transaction'
 import { Block } from './Block'
-import { WalletInfo } from './WalletInfo'
+import { Client } from './Client'
 import { Peer } from './Peer'
+import { Transaction } from './Transaction'
+import { WalletInfo } from './WalletInfo'
 
 export abstract class API {
 	commands: Array<string> = new Array(
