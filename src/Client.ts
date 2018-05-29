@@ -143,4 +143,8 @@ export class Client extends API {
       console.error
     )
   }
+
+  sendToAddress(address: string, amount: number): Promise<Client> {
+    return this.send('sendtoaddress', address, amount).catch(console.error)
+  }
 }
