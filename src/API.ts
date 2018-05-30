@@ -164,9 +164,8 @@ export abstract class API {
   */ abstract sendToAddress(
     address: string,
     amount: number
-  ): Promise<
-    Client
-  > /*
+  ): Promise<Client>
+  /*
 
   abstract setAccount(): Client
 
@@ -184,7 +183,9 @@ export abstract class API {
 
   abstract verifyMessage(): Client
 
-  abstract walletLock(): Client
+  */ abstract walletLock(): Promise<
+    any
+  > /*
 
   abstract walletPassphrase(): Client
 
