@@ -117,21 +117,19 @@ export class Client extends API {
   }
 
   public unlockWallet(passphrase, timeout = 1): Promise<boolean> {
-    return this.send('walletpassphrase', passphrase, timeout).catch(
-      console.error
-    )
+    return this.send('walletpassphrase', passphrase, timeout)
   }
 
   getBalance(account?: string): Promise<number> {
-    return this.send('getbalance', account).catch(console.error)
+    return this.send('getbalance', account)
   }
 
   getInfo(): Promise<WalletInfo> {
-    return this.send('getinfo').catch(console.error)
+    return this.send('getinfo')
   }
 
   getPeerInfo(): Promise<Array<Peer>> {
-    return this.send('getPeerInfo').catch(console.error)
+    return this.send('getPeerInfo')
   }
 
   getTransactionList(
@@ -139,12 +137,10 @@ export class Client extends API {
     from: number = 0,
     account: string = '*'
   ): Promise<Transaction[]> {
-    return this.send('listtransactions', account, count, from).catch(
-      console.error
-    )
+    return this.send('listtransactions', account, count, from)
   }
 
   sendToAddress(address: string, amount: number): Promise<Client> {
-    return this.send('sendtoaddress', address, amount).catch(console.error)
+    return this.send('sendtoaddress', address, amount)
   }
 }
