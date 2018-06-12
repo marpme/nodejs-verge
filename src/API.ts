@@ -1,77 +1,77 @@
-import { Block } from './Block'
-import { Client } from './Client'
-import { Peer } from './Peer'
-import { Transaction } from './Transaction'
-import { WalletInfo } from './WalletInfo'
+import { Block } from "./Block";
+import { Client } from "./Client";
+import { Peer } from "./Peer";
+import { Transaction } from "./Transaction";
+import { WalletInfo } from "./WalletInfo";
 
 export abstract class API {
   commands: Array<string> = new Array(
-    'addMultiSigAddress',
-    'backupWallet',
-    'createRawTransaction',
-    'decodeRawTransaction',
-    'dumpPrivKey',
-    'encryptWallet',
-    'getAccount',
-    'getAccountAddress',
-    'getAddressesByAccount',
-    'getBalance',
-    'getBlock',
-    'getBlockCount',
-    'getBlockHash',
-    'getConnectionCount',
-    'getDifficulty',
-    'getGenerate',
-    'getHashesPerSec',
-    'getInfo',
-    'getMemoryPool',
-    'getMiningInfo',
-    'getNewAddress',
-    'getRawTransaction',
-    'getReceivedByAccount',
-    'getReceivedByAddress',
-    'getTransaction',
-    'getWork',
-    'help',
-    'importPrivKey',
-    'importAddress',
-    'keyPoolRefill',
-    'listAccounts',
-    'listReceivedByAccount',
-    'listReceivedByAddress',
-    'listSinceBlock',
-    'listTransactions',
-    'listUnspent',
-    'move',
-    'sendFrom',
-    'sendMany',
-    'sendRawTransaction',
-    'sendToAddress',
-    'setAccount',
-    'setGenerate',
-    'setTxFee',
-    'signMessage',
-    'signRawTransaction',
-    'stop',
-    'validateAddress',
-    'verifyMessage',
-    'walletLock',
-    'walletPassphrase',
-    'walletPassphraseChange'
-  )
+    "addMultiSigAddress",
+    "backupWallet",
+    "createRawTransaction",
+    "decodeRawTransaction",
+    "dumpPrivKey",
+    "encryptWallet",
+    "getAccount",
+    "getAccountAddress",
+    "getAddressesByAccount",
+    "getBalance",
+    "getBlock",
+    "getBlockCount",
+    "getBlockHash",
+    "getConnectionCount",
+    "getDifficulty",
+    "getGenerate",
+    "getHashesPerSec",
+    "getInfo",
+    "getMemoryPool",
+    "getMiningInfo",
+    "getNewAddress",
+    "getRawTransaction",
+    "getReceivedByAccount",
+    "getReceivedByAddress",
+    "getTransaction",
+    "getWork",
+    "help",
+    "importPrivKey",
+    "importAddress",
+    "keyPoolRefill",
+    "listAccounts",
+    "listReceivedByAccount",
+    "listReceivedByAddress",
+    "listSinceBlock",
+    "listTransactions",
+    "listUnspent",
+    "move",
+    "sendFrom",
+    "sendMany",
+    "sendRawTransaction",
+    "sendToAddress",
+    "setAccount",
+    "setGenerate",
+    "setTxFee",
+    "signMessage",
+    "signRawTransaction",
+    "stop",
+    "validateAddress",
+    "verifyMessage",
+    "walletLock",
+    "walletPassphrase",
+    "walletPassphraseChange"
+  );
 
   isCommand(command: string): boolean {
-    const lowerCommand: string = command.toLowerCase()
+    const lowerCommand: string = command.toLowerCase();
 
     var lowerCaseCommands = this.getCommands().map((item: string) =>
       item.toLowerCase()
-    )
+    );
 
-    return lowerCaseCommands.indexOf(lowerCommand) !== -1
+    return lowerCaseCommands.indexOf(lowerCommand) !== -1;
   }
 
   getCommands(): Array<string> {
-    return this.commands
+    return this.commands;
   }
 
   /*abstract addMultiSigAddress(
@@ -97,7 +97,7 @@ export abstract class API {
   abstract getAccountAddress(account: string): Promise<string>
   abstract getAddressesByAccount(account: string): Promise<string>*/
 
-  abstract getBalance(account?: string): Promise<number>
+  abstract getBalance(account?: string): Promise<number>;
 
   /*abstract getBlock(hash: string, txinfo?: string): Promise<Block>
 
@@ -113,15 +113,19 @@ export abstract class API {
 
   abstract getHashesPerSec(): Client*/
 
-  abstract getInfo(): Promise<WalletInfo>
+  abstract getInfo(): Promise<WalletInfo>;
 
-  abstract getPeerInfo(): Promise<Array<Peer>>
+  abstract getPeerInfo(): Promise<Array<Peer>>;
 
   /*abstract getMemoryPool(): Client
 
   abstract getMiningInfo(): Client
 
-  abstract getNewAddress(): Client
+  */
+
+  abstract getNewAddress(): Promise<String>;
+
+  /*
 
   abstract getRawTransaction(): Client
 
@@ -149,7 +153,7 @@ export abstract class API {
 
   abstract listSinceBlock(): Client
 */
-  abstract getTransactionList(): Promise<Transaction[]>
+  abstract getTransactionList(): Promise<Transaction[]>;
   /*
   abstract listUnspent(): Client
 
@@ -164,7 +168,7 @@ export abstract class API {
   */ abstract sendToAddress(
     address: string,
     amount: number
-  ): Promise<Client>
+  ): Promise<Client>;
   /*
 
   abstract setAccount(): Client
@@ -185,7 +189,7 @@ export abstract class API {
 
   */ abstract walletLock(): Promise<
     any
-  > /*
+  >; /*
 
   abstract walletPassphrase(): Client
 
