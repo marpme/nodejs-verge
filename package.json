@@ -1,6 +1,6 @@
 {
 	"name": "verge-node-typescript",
-	"version": "0.0.14",
+	"version": "0.0.15",
 	"description": "NodeJS typescript RPC client for VERGE currency",
 	"keywords": [
 		"verge"
