@@ -148,7 +148,7 @@ export class Client extends API {
     return this.send("walletlock");
   }
 
-  getNewAddress(): Promise<String> {
+  getNewAddress(): Promise<string> {
     return this.send("getnewaddress");
   }
 }
