@@ -141,7 +141,9 @@ export class Client extends API {
   }
 
   sendToAddress(address: string, amount: number): Promise<Client> {
-    return this.send("sendtoaddress", address, amount);
+    return address.length > 75
+      ? this.send("sendtostealthaddress", address, amount)
+      : this.send("sendtoaddress", address, amount);
   }
 
   walletLock() {
