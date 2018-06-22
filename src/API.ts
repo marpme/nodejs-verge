@@ -105,6 +105,12 @@ export abstract class API {
 
   abstract getBlockHash(): Client
 
+  */
+
+  abstract getBlockByNumber(blocknumber: number): Promise<Block>;
+
+  /*
+
   abstract getConnectionCount(): Client
 
   abstract getDifficulty(): Client
