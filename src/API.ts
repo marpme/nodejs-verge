@@ -131,6 +131,8 @@ export abstract class API {
 
   abstract getNewAddress(): Promise<String>;
 
+  abstract getNewStealthAddress(): Promise<String>;
+
   /*
 
   abstract getRawTransaction(): Client

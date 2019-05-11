@@ -154,6 +154,10 @@ export class Client extends API {
     return this.send("getnewaddress");
   }
 
+  getNewStealthAddress(): Promise<string> {
+    return this.send("getnewstealthaddress");
+  }
+
   getBlockByNumber(blocknumber: number): Promise<Block> {
     return this.send("getblockbynumber", blocknumber);
   }
